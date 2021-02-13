@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   return (
-    <div className="border border-black max-w-screen-md m-auto h-screen bg-gray-200">
+    <div className="border border-black max-w-screen-md m-auto bg-gray-100 relative">
       <Header />
       {authenticated === false && (
         <Modal
@@ -49,8 +49,10 @@ function App() {
           ]}
         />
       )}
-      <div className="h-full grid grid-rows-msgbox">
+      <div className="flex flex-col pt-16 pb-28 min-h-screen">
         <MessageBox />
+      </div>
+      <div className="fixed bottom-0 left-0 right-0 bg-white">
         <WriteMessage />
       </div>
     </div>

@@ -15,7 +15,7 @@ function Message({ content, toRight = false, date }: Props) {
     >
       <div
         className={`px-4 py-4 rounded-lg shadow-drop min-w-50 max-w-70 min-h ${
-          toRight ? "bg-gray-500 text-white" : ""
+          toRight ? "bg-gray-500 text-white bg-primary" : ""
         }`}
       >
         {content}
