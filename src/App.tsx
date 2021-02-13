@@ -52,7 +52,7 @@ function App() {
       <div className="flex flex-col pt-16 pb-28 min-h-screen">
         <MessageBox />
       </div>
-      <div className="fixed bottom-0 left-0 right-0 bg-white">
+      <div className="fixed w-full max-w-screen-md bottom-0 bg-white">
         <WriteMessage />
       </div>
     </div>
