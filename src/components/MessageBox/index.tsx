@@ -1,41 +1,48 @@
-import React from "react";
+import { useQuery } from "@apollo/client";
+import { gql } from "graphql-tag";
+import React, { useEffect, useRef } from "react";
+import { MessageType } from "../../interfaces/Message";
 import Message from "../Message";
+import Spinner from "../Spinner";
+
+const GET_MESSAGES = gql`
+  query getMessages {
+    GetMessage {
+      senderId
+      content
+      createdAt
+    }
+  }
+`;
+interface GetMessage {
+  GetMessage: [MessageType];
+}
 
 function MessageBox() {
-  return (
-    <>
-      <Message senderName="Lisa" content="Hi There!" date={new Date()} />
-      <Message
-        senderName="Lisa"
-        content="Good morning."
-        toRight
-        date={new Date()}
-      />
-      <Message
-        senderName="Lisa"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat
-        aliquam nulla"
-        date={new Date()}
-      />
-      <Message
-        senderName="Lisa"
-        content="sit amet facilisis felis posuere sed. Vivamus ultrices arcu felis."
-        toRight
-        date={new Date()}
-      />
-      <Message
-        senderName="Lisa"
-        content="sit amet facilisis felis posuere sed. Vivamus ultrices arcu felis."
-        toRight
-        date={new Date()}
-      />
-      <Message
-        senderName="Lisa"
-        content="sit amet facilisis felis posuere sed. Vivamus ultrices arcu felis."
-        date={new Date()}
-      />
-    </>
-  );
+  const { loading, data } = useQuery<GetMessage>(GET_MESSAGES);
+  const bottom = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    console.log(bottom);
+    if (bottom.current) bottom.current.scrollIntoView();
+  }, [data]);
+
+  if (loading) return <Spinner />;
+  if (data)
+    return (
+      <>
+        {data.GetMessage.map(({ senderId, content, createdAt }) => (
+          <Message
+            key={`${senderId}+${createdAt}`}
+            senderId={senderId}
+            content={content}
+            date={new Date(createdAt)}
+          />
+        ))}
+        <div ref={bottom} />
+      </>
+    );
+  return null;
 }
 
 export default MessageBox;

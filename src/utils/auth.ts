@@ -1,4 +1,4 @@
-import { googleAuthUrl } from "../api/googleAuth";
+import { googleAuthUrl } from "../adapters/googleAuth";
 
 let loginWindow: any;
 
@@ -18,9 +18,11 @@ export const initiateLogin = (provider = "google") => {
 
 export const attachLoginListener = (callback: Function) => {
   window.addEventListener("message", (data) => {
-    callback(data);
-    setTimeout(() => {
-      loginWindow.close();
-    }, 1000);
+    if (data && data.data && data.data.token) {
+      callback(data);
+      setTimeout(() => {
+        loginWindow.close();
+      }, 1000);
+    }
   });
 };

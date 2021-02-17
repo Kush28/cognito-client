@@ -1,4 +1,7 @@
+import { Boolean } from "@ungap/global-this";
+
 export interface UserType {
+  id: string;
   externalId: string;
   externalProvider: string;
   name: string;
@@ -6,6 +9,7 @@ export interface UserType {
 }
 
 export interface AuthStateType {
+  loading: Boolean;
   authenticated: Boolean;
   authError: Boolean;
   user: UserType | null;

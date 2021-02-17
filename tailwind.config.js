@@ -29,6 +29,8 @@ module.exports = {
           "linear-gradient(135deg, rgba(70,94,252,0.7), rgba(70,94,252,1))",
         convex:
           "linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25))",
+        convexprimary:
+          "linear-gradient(-45deg, rgba(70,94,252,0.7), rgba(70,94,252,1))",
       }),
       gridTemplateRows: {
         msgbox: "auto 130px",

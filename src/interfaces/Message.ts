@@ -2,7 +2,7 @@ export interface MessageType {
   senderId: string;
   content: string;
   _id: number;
-  updatedAt: Date;
+  createdAt: Date;
 }
 
 export interface MessageStateType {
