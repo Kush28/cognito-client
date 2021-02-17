@@ -1,17 +1,17 @@
 import {
   AuthActionType,
-  AuthContextType,
+  AuthStateType,
   UserType,
 } from "../../interfaces/User";
 
-export const initialState: AuthContextType = {
+export const initialState: AuthStateType = {
   authenticated: false,
   authError: false,
   user: null,
 };
 
 export default function reducer(
-  state: AuthContextType,
+  state: AuthStateType,
   action: AuthActionType
 ) {
   const { type, payload } = action;

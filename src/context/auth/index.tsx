@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { AuthContextType } from "../../interfaces/User";
+import { AuthStateType } from "../../interfaces/User";
 import reducer, { initialState } from "./reducer";
 
 interface Props {
   children: React.ReactChild | React.ReactChild[];
 }
 
-const AuthStateContext = createContext<AuthContextType>(initialState);
+const AuthStateContext = createContext<AuthStateType>(initialState);
 
 const AuthDispatchContext = createContext<Function>(() => {});
 

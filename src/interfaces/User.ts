@@ -5,7 +5,7 @@ export interface UserType {
   avatar: string;
 }
 
-export interface AuthContextType {
+export interface AuthStateType {
   authenticated: Boolean;
   authError: Boolean;
   user: UserType | null;
