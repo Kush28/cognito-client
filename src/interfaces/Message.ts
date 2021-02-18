@@ -1,15 +1,15 @@
 export interface MessageType {
   senderId: string;
   content: string;
-  _id: number;
+  id: string;
   createdAt: Date;
 }
 
 export interface MessageStateType {
-  messages: [MessageType] | [];
+  messages: MessageType[];
 }
 
 export interface MessageActionType {
   type: string;
-  payload: string | MessageType;
+  payload: [MessageType];
 }

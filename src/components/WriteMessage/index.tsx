@@ -5,7 +5,10 @@ import { RiSendPlaneLine } from "react-icons/ri";
 const SEND_MESSAGE = gql`
   mutation sendMessage($content: String!) {
     sendMessage(content: $content) {
+      id: _id
       senderId
+      content
+      createdAt
     }
   }
 `;
@@ -13,9 +16,8 @@ const SEND_MESSAGE = gql`
 function WriteMessage() {
   const [message, setMessage] = useState("");
   const [sendMessage] = useMutation(SEND_MESSAGE, {
-    onError: (err) => console.log(err),
+    onError: (err) => alert(err),
   });
-  console.log(message);
 
   const sendHandler = () => {
     sendMessage({ variables: { content: message } });
@@ -28,6 +30,7 @@ function WriteMessage() {
         type="text"
         className="w-10/12 p-4 focus:outline-none"
         placeholder="Write a message..."
+        value={message}
         onChange={(e) => {
           setMessage(e.target.value);
         }}
