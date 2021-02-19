@@ -15,7 +15,7 @@ const development: ConstantsType = {
 const production: ConstantsType = {
   SERVER_ENDPOINT: "https://cognito-prod.herokuapp.com",
   GRAPHQL_ENDPOINT: "https://cognito-prod.herokuapp.com/graphql",
-  GRAPHQL_SUB_ENDPOINT: "ws://cognito-prod.herokuapp.com/graphql",
+  GRAPHQL_SUB_ENDPOINT: "wss://cognito-prod.herokuapp.com/graphql",
   API_VERSION: "v1",
 };
 
