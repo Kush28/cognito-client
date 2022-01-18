@@ -24,7 +24,7 @@ function Message({ content, senderId, date }: Props) {
           toRight ? "bg-gray-500 text-white bg-primary" : ""
         }`}
       >
-        {!toRight && <p className="font-bold">{user.name}</p>}
+        {!toRight && <p className="font-bold hidden">{user.name}</p>}
         {content}
       </div>
       <div className="text-gray-500 text-xs mx-2">{date.toDateString()}</div>

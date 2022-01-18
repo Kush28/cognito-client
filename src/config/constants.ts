@@ -12,14 +12,16 @@ const development: ConstantsType = {
   API_VERSION: "v1",
 };
 
-const production: ConstantsType = {
-  SERVER_ENDPOINT: "https://cognito-prod.herokuapp.com",
-  GRAPHQL_ENDPOINT: "https://cognito-prod.herokuapp.com/graphql",
-  GRAPHQL_SUB_ENDPOINT: "wss://cognito-prod.herokuapp.com/graphql",
-  API_VERSION: "v1",
-};
+// const production: ConstantsType = {
+//   SERVER_ENDPOINT: "https://cognito-prod.herokuapp.com",
+//   GRAPHQL_ENDPOINT: "https://cognito-prod.herokuapp.com/graphql",
+//   GRAPHQL_SUB_ENDPOINT: "wss://cognito-prod.herokuapp.com/graphql",
+//   API_VERSION: "v1",
+// };
 
-const constants: ConstantsType =
-  process.env.NODE_ENV === "development" ? development : production;
+// const constants: ConstantsType =
+//   process.env.NODE_ENV === "development" ? development : production;
+
+const constants: ConstantsType = development;
 
 export default constants;
